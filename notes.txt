@@ -1,0 +1,22 @@
+WORK FLOW:
+
+login Page from Frontend
+fill the from
+handlesubmit call post method through await fetch
+goes to backend /login
+backend give a signed token in response
+frontend stores in the local storage and Redirect to profile section
+
+//Protected route of profile checkspoint is here
+profile is a protected route. That means:
+Frontend checks if there is a token (stored in state or localStorage).
+If no token, it prevents the user from accessing /profile and redirects to /login.
+If a token exists, the component renders, and the frontend sends the token to the backend for verification.
+
+profile frontend send get req to backend using fetch
+req include header which contains token
+It extracts the token from the Authorization header.
+It calls jwt.verify(token, SECRET_KEY)
+After successful verification, backend sends back user data
+Frontend Displays Profile: Profile.jsx receives the data and renders it on the page.
+
